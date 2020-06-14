@@ -9,8 +9,8 @@
 namespace ONP_Calculator
 {
     static std::vector<std::pair<std::string, double>> constants = {std::pair<std::string, double>("e", 2.718281828459),
-                                                                std::pair<std::string, double>("pi", 3.14159265358),
-                                                                std::pair<std::string, double>("phi", 1.61803398875)};
+                                                                    std::pair<std::string, double>("pi", 3.14159265358),
+                                                                    std::pair<std::string, double>("phi", 1.61803398875)};
 
     class Constant : public Operand
     {
@@ -22,6 +22,9 @@ namespace ONP_Calculator
             Constant(std::string name);
             ~Constant();
         
+        private:
+            void set_arguments();
+
         public:
             double eval();
     };

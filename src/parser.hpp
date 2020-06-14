@@ -13,7 +13,7 @@ namespace ONP_Calculator
         private:
             Token token;
             std::queue<Symbol*> queue;
-        
+
         public:
             Parser();
             ~Parser();
@@ -21,6 +21,7 @@ namespace ONP_Calculator
         public:
             void parse();
             int classify();
+            std::queue<Symbol*> get_queue();
     }; 
 }
 

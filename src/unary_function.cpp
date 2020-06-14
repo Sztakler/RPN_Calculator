@@ -2,8 +2,16 @@
 
 using namespace ONP_Calculator;
 
-UnaryFunction::UnaryFunction(){}
-UnaryFunction::UnaryFunction(std::string name) : Function(name){}
+UnaryFunction::UnaryFunction()
+{
+    this->type = UNARY_FUNCTION;
+}
+
+UnaryFunction::UnaryFunction(std::string name) : Function(name)
+{
+    this->type = UNARY_FUNCTION;
+}
+
 UnaryFunction::~UnaryFunction(){}
 
 double UnaryFunction::eval()
@@ -35,7 +43,17 @@ double UnaryFunction::eval()
     else throw std::invalid_argument("Unknown function");
 }
 
+void UnaryFunction::set_arguments(double first_arg, double second_arg)
+{
+    set_argument(first_arg);
+}
+
 void UnaryFunction::set_argument(double argument)
 {
     this->argument = argument;
+}
+
+int UnaryFunction::get_expression_type()
+{
+    return this->type;
 }

@@ -12,7 +12,6 @@ void Parser::parse()
     while (c != '\n') 
     {
         this->token.value = "";
-        
         while(c != ' ' && c != '\n')
         {
             this->token.value += c;
@@ -26,7 +25,7 @@ void Parser::parse()
         UnaryFunction* u_function;
         BinaryFunction* b_function;
 
-        std::cout << this->token.value << std::endl;
+        std::cout << this->token.value;
 
         switch (this->token.type)
         {
@@ -38,23 +37,28 @@ void Parser::parse()
                 constant = new Constant(this->token.value);
                 this->queue.push(constant);
                 break;
-            case this->token.VARIABLE:
-                variable = new Variable(this->token.value);
-                this->queue.push(variable);
-                break;
             case this->token.UNARY_FUNCTION:
                 u_function = new UnaryFunction(this->token.value);
                 this->queue.push(u_function);
                 break;
             case this->token.BINARY_FUNCTION:
+            std::cout << "eeeeeee";
                 b_function = new BinaryFunction(this->token.value);
                 this->queue.push(b_function);
+                break;
+            case this->token.VARIABLE:
+             std::cout << "ffffe";
+                variable = new Variable(this->token.value);
+                this->queue.push(variable);
                 break;
             default: throw std::invalid_argument("Unrecognized token");
         }     
         
         if(c != '\n') std::cin.get(c);
-    }
-  
+    } 
 }
 
+std::queue<Symbol*> Parser::get_queue()
+    {
+        return this->queue;
+    }

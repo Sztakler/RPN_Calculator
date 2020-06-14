@@ -2,9 +2,15 @@
 
 using namespace ONP_Calculator;
 
-Constant::Constant(){}
+Constant::Constant()
+{
+    this->type = OPERAND;
+}
 
-Constant::Constant(std::string name) : name(name){}
+Constant::Constant(std::string name) : name(name)
+{
+    this->type = OPERAND;
+}
 
 Constant::~Constant(){}
 
@@ -16,3 +22,5 @@ double Constant::eval()
     }
     throw std::invalid_argument("Constant name not found");
 }
+
+void Constant::set_arguments(){}

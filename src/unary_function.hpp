@@ -8,6 +8,10 @@ namespace ONP_Calculator
     {
         private:
             double argument;
+
+        private:
+            void set_arguments(double, double);
+            
         public:
             UnaryFunction();
             UnaryFunction(std::string name);
@@ -16,5 +20,6 @@ namespace ONP_Calculator
         public:
             double eval() override;
             void set_argument(double argument);
+            int get_expression_type() override;
     }; 
 }

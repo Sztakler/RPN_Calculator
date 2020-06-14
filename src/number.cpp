@@ -2,9 +2,15 @@
 
 using namespace ONP_Calculator;
 
-Number::Number(){}
+Number::Number()
+{
+    this->type = OPERAND;
+}
 
-Number::Number(double value) : value(value){}
+Number::Number(double value) : value(value)
+{
+    this->type = OPERAND;
+}
 
 Number::~Number(){}
 

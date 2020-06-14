@@ -1,13 +1,13 @@
 #include "function.hpp"
 #include <algorithm>
 #include <stdexcept>
+#include <string>
 
 namespace ONP_Calculator
 {   
     class BinaryFunction : public Function
     {
         private:
-            std::string name;
             double first_arg;
             double second_arg;
 
@@ -19,6 +19,7 @@ namespace ONP_Calculator
         public:
             double eval();
             void set_arguments(double first_arg, double second_arg);
+            int get_expression_type() override;
     };
     
 }

@@ -1,10 +1,17 @@
 #include "variable.hpp"
+#include <stdexcept>
 
 using namespace ONP_Calculator;
 
-Variable::Variable(){}
+Variable::Variable()
+{
+    this->type = OPERAND;
+}
 
-Variable::Variable(std::string name) : name(name){}
+Variable::Variable(std::string name) : name(name)
+{
+    this->type = OPERAND;
+}
 
 double Variable::eval()
 {
@@ -12,7 +19,7 @@ double Variable::eval()
     {
         if (this->name == p.first) return p.second;
     }
-    throw "Variable not found";
+    throw std::invalid_argument("Variable not found");
 }
 
 void Variable::assign(double value)

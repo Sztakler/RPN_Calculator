@@ -2,8 +2,16 @@
 
 using namespace ONP_Calculator;
 
-BinaryFunction::BinaryFunction(){}
-BinaryFunction::BinaryFunction(std::string name) : Function(name){}
+BinaryFunction::BinaryFunction()
+{
+    this->type = BINARY_FUNCTION;
+}
+
+BinaryFunction::BinaryFunction(std::string name) : Function(name)
+{
+    this->type = BINARY_FUNCTION;    
+}
+
 BinaryFunction::~BinaryFunction(){}
 
 double BinaryFunction::eval()
@@ -24,4 +32,9 @@ void BinaryFunction::set_arguments(double first_arg, double second_arg)
 {
     this->first_arg = first_arg;
     this->second_arg = second_arg;
+}
+
+int BinaryFunction::get_expression_type()
+{
+    return this->type;
 }
