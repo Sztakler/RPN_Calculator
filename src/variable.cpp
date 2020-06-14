@@ -1,7 +1,10 @@
 #include "variable.hpp"
 #include <stdexcept>
+#include <iostream>
 
 using namespace ONP_Calculator;
+
+std::map<std::string, double> Variable::variables;
 
 Variable::Variable()
 {
@@ -15,16 +18,18 @@ Variable::Variable(std::string name) : name(name)
 
 double Variable::eval()
 {
-    for(std::pair<std::string, double> p : variables)
-    {
-        if (this->name == p.first) return p.second;
-    }
+    std::map<std::string, double>::iterator iter = this->variables.find(name);
+    if (iter != variables.end()) return iter->second;
     throw std::invalid_argument("Variable not found");
 }
 
-void Variable::assign(double value)
+void Variable::assign(double value, std::string name)
 {
-
-    std::pair<std::string, double> p(this->name, value);
+    std::pair<std::string, double> p(name, value);
     variables.insert(p);
+}
+
+void Variable::clear()
+{
+    variables.clear();
 }

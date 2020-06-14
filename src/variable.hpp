@@ -7,13 +7,14 @@
 
 namespace ONP_Calculator
 {
-    static std::map<std::string, double> variables;
+    
 
     class Variable : public Operand
     {
         private:
             std::string name;
-
+            static std::map<std::string, double> variables;
+    
         public:
             Variable();
             Variable(std::string name);
@@ -21,7 +22,8 @@ namespace ONP_Calculator
 
         public:
             double eval();
-            void assign(double value);
+            static void assign(double value, std::string name);
+            static void clear();
     };
 }
 

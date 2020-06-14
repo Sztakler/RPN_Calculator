@@ -15,6 +15,7 @@ OBJ = $(OBJ_DIR)/main.o \
 	  $(OBJ_DIR)/token.o \
 	  $(OBJ_DIR)/parser.o \
 	  $(OBJ_DIR)/evaluator.o \
+	  $(OBJ_DIR)/interface.o \
 	  $(OBJ_DIR)/includes.o
 	 
 OBJ_PATH = ./$(OBJ_DIR)/

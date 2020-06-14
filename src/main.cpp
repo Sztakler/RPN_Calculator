@@ -1,15 +1,15 @@
 #include <iostream>
 #include "parser.hpp"
 #include "evaluator.hpp"
+#include "interface.hpp"
 
 using namespace ONP_Calculator;
 
 int main()
 {
-    Parser parser;
-    Evaluator evaluator;
-    parser.parse();
-    std::cout << evaluator.evaluate(parser.get_queue()) << std::endl;
+    Interface interface;
+
+    interface.run_interface();
 
     return 0;
 }

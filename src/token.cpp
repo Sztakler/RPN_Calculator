@@ -22,7 +22,7 @@ bool Token::is_number()
 
     for (char digit : value)
     {
-        if (!(digit <=57 && digit >= 48)) return false;
+        if (!(digit <=57 && digit >= 48 || digit == '.')) return false;
     }
     return true;
 }
@@ -62,6 +62,5 @@ void Token::set_type()
     else if(is_number()) this->type = NUMBER;
     else if(is_unary_function()) this->type = UNARY_FUNCTION;
     else if(is_binary_function()) this->type = BINARY_FUNCTION;
-    else if(is_variable()) this->type = VARIABLE;
-    else this->type = UNRECOGNIZED;
+    else this->type = VARIABLE;
 }
