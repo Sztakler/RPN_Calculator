@@ -12,11 +12,15 @@ double Evaluator::evaluate(std::queue<Symbol*> queue)
     double value_1;
     double value_2;
 
+    while(!stack.empty()) 
+    {
+        stack.pop();
+    }
+
     while(!queue.empty())
     {
         expression = queue.front();
         queue.pop();
-
         switch(expression->get_expression_type())
         {
             case expression->OPERAND:
